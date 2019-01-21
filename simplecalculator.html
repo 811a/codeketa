@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+.container
+{
+    width:960px;
+    margin:0px auto;
+    background:gainsboro;
+    overflow :hidden
+}
+header{
+    text-align:center;
+    padding:20px;
+}
+.sect{
+    width:480px;
+    float:left;
+    padding:10px;
+}
+.sect{
+    width:220px;
+    margin:10px;
+    float:left;
+}
+.clr{
+    clear:both;
+}
+.input{
+    width:960px;
+    overflow:hidden;
+    display:table;
+}
+.oper{
+    width:960px;
+    overflow:hidden;
+    display:table;
+}
+#ans{
+    border:1px solid black;
+    width:75px;
+    height:40px;
+    padding:5px;
+    margin:10px;
+}
+#in1
+{
+    background:red;
+    color:white;
+}
+#in2{
+    background:red;
+    color:white;
+}
+.active 
+{
+    background-color: green;
+    color:red;
+}
+.operation
+{
+    
+    border: 3px solid #19e989;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+	</style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script> 
+$(document).ready(function () {
+    $("#calci").submit(function (e) {
+        e.preventDefault();
+    });
+
+
+    $('.oper button').on('click', function () {
+        $(this).addClass('active').siblings().removeClass('active');
+        var btn_val = $('.active').val();
+        var ans;
+
+        $("#calculate").click(function () {
+
+            var num1 = $("#ip_1").val();
+
+            var num2 = $("#ip_2").val();
+            if (btn_val == 'add') {
+                ans = parseInt(num1) + parseInt(num2);
+                //alert(ans);
+                $('#ans').text(ans);
+            }
+            else if (btn_val == 'sub') {
+                var ans1 = parseInt(num1) - parseInt(num2);
+               // alert(ans1);
+               $('#ans').text(ans1);
+            }
+            else if (btn_val == 'mul') {
+                var ans2 = parseInt(num1) * parseInt(num2);
+               // alert(ans2);
+                $('#ans').text(ans2);
+            }
+            else {
+                var ans3 = parseInt(num1) / parseInt(num2);
+               // alert(ans3);
+                $('#ans').text(ans3);
+            }
+        });
+    });
+});
+
+</script>
+    </head>
+    <body>
+        <div class="container">
+            <header>Simple Calculator</header>
+            <form name="calc" id="calci">
+                <div class="input">
+                    <div class="sect">
+                        <p>Number1:</p><br>
+                        <input type="text" name="ip1" id="ip_1">
+                        <span id="in1"></span>
+                    </div>
+                    <div class="sect">
+                        <p>Number2:</p><br>
+                        <input type="text" name="ip2" id="ip_2">
+                        <span id="in2" ></span>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="oper">
+                    
+                        <button id="add" class="operation" value="add">+</button>
+                    
+                    
+                        <button id="sub" class="operation" value="sub">-</button>
+                    
+                    
+                        <button id="mul" class="operation" value="mul">*</button>
+                     
+                    
+                        <button id="div" class="operation" value="div">/</button>
+                     </div>
+                    <div class="sec">
+
+                        <input type="submit" name="ans" id="calculate" value="=" />
+                    </div>
+                    <div class="clr"></div>
+                
+
+                <div id="ans"></div>
+
+            </form>
+        </div>
+    </body>
+</html>
