@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Simple_calc</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script>
+$(document).ready(function(e) {
+    $('#1,#2,#3,#4,#5,#6,#7,#8,#9,#0').click(function(){
+		var v = $(this).val();
+		$('#answer').val($('#answer').val() + v);	
+	});
+        $('.oper').click(function(){
+            var val1=$(this).val();
+            $('#answer').val($('#answer').val() + val1);
+        });
+        $('#equals').click(function(e){
+            //var b=$('#ans').val();
+            var a=$('#answer').val();
+         //  if(b == '' || b == 0) {
+           
+           $('#ans').val(eval(a));
+           return false; 
+       //}
+     //  else
+      // {
+             
+       //    $('#ans').val(eval(b));
+        //   return false;
+     //  }
+        });
+        $('#C').click(function(){
+            var display_val=0;
+            $('#ans').val(display_val);
+            $('#answer').val('');
+        });
+    });
+</script>
+<style>
+form,input,button 
+{ 
+    margin:0px;
+}
+</style>
+</head>
+
+<body>
+<div style="width:200px; margin:auto;">
+    <form action="" id="calculator">
+    	<input type="hidden" id="operation" value=""/>
+        <input type="text" id="ans" value="" style="width:98%; height:30px;" disabled="disabled"/>
+    	<input type="text" id="answer" value="" style="width:98%; height:30px;" disabled="disabled"/>
+     	<input type="button" value="+" id="plus" class="oper" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="-" id="sub" class="oper" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="/" id="div" class="oper" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="*" id="mul" class="oper" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="1" id="1" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="2" id="2" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="3" id="3" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="4" id="4" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="5" id="5" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="6" id="6" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="7" id="7" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="8" id="8" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="9" id="9" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="0" id="0" style="width:50px; height:50px; float:left;"/>
+        <input type="button" value="C" id="C" style="width:50px; height:50px; float:left; color:red;"/>
+        <input type="button" value="=" id="equals" style="width:50px; height:50px; float:left;"/>
+    </form>
+    <div style="clear:both;"></div>
+</div>
+</body>
+</html>
